@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ scholarname }}-{{ scholarschool }}</title>
+    <script type="text/javascript" src="../static/js/jquery-1.8.3.min.js"></script>
+    <script src="../static/js/bootstrap.js"></script>
+    <script src="../static/js/echarts.js" ></script>
+    <script type="text/javascript" src="../static/js/echarts-wordcloud.js"></script>
+    <link href="../static/css/scholarinfo.css" rel="stylesheet" type="text/css">
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="../static/css/tableyx.css" rel="stylesheet" type="text/css">
+    <script src="../static/js/scholarinfo.js"></script>
+    <script src="../static/layer/layer.js" ></script>
+    <script type="text/javascript">
+        var data={
+            achive:{{ achievement_list2|tojson }},
+            cited:{{ cited_list|tojson }},
+            paper:{{ achievement_list|tojson }},
+            paper_search_key:{{ paper_search_key|tojson }},
+            paper_search_num:{{ paper_search_num|tojson }},
+            scholar_school:{{ scholarschool|tojson }},
+            scholar_name:{{ scholarname|tojson }}
+        };
+    </script>
+     <script src="../static/js/DataVisualization.js" type="text/javascript"></script>
+     <script type="text/javascript">
+        var rela_center={
+            data:{{ rela_center|tojson }}
+        };
+        var rela_partner={
+            data:{{ rela_partner|tojson }}
+        }
+    </script>
+    <script src="../static/js/RelationNet.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var data={
+            paper_search_key:{{ paper_search_key|tojson }},
+            paper_search_num:{{ paper_search_num|tojson }},
+            scholar_school:{{ scholarschool|tojson }},
+            scholar_name:{{ scholarname|tojson }}
+        };
+    </script>
+    <script src="../static/js/PersonalPaint.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var compare_data={
+            partnerlist:{{ partner_list2|tojson }}
+        }
+    </script>
+    <script src="../static/js/ScholarCompare.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var new_rela_partner={
+            same_school_partner:{{ same_school_partner|tojson }},
+            same_paper_partner:{{ same_paper_partner|tojson }}
+        }
+    </script>
+    <script src="../static/js/NewRelationNet.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        //<![CDATA[
+        var theForm = document.forms['form1'];
+            if (!theForm) {
+                theForm = document.form1;
+            }
+            function __doPostBack(eventTarget, eventArgument) {
+                if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+                    theForm.__EVENTTARGET.value = eventTarget;
+                    theForm.__EVENTARGUMENT.value = eventArgument;
+                    theForm.submit();
+                }
+            }//]]>
+    </script>
+</head>
+<body>
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+        <tbody>
+        <!-- start 1、LOGO+反馈按钮-->
+        <tr>
+            <td>
+                <div class="box100 bg-wit">
+                    <div class="box1200 h80 mau">
+                        <!-- start LOGO -->
+                        <div class="fl logo">
+                            <a href="/">
+                                <img src="../static/images/left-logo.png" alt>
+                            </a>
+                        </div>
+                        <!-- LOGO -->
+                        <!--start联系我们按钮-->
+                        <div class="fr pt25">
+                            <a class="my-btn mr15 fr" href="feedback" target="_blank" title="点击反馈">反馈问题</a>
+                        </div>
+                        <!--end联系我们按钮-->
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <!-- end 1、LOGO+反馈按钮-->
+
+        <!-- start 2、页面主体：学者信息+左侧导航条-->
+        <tr>
+            <td>
+                <table width="100%" height="2" border="0" align="center" cellpadding="0" cellspacing="0">
+                    <tbody>
+                    <tr>
+                        <td valign="top">
+                            <div class="bg-e">
+                                <!-- main start -->
+                                <!-- 学者个人简介 -->
+                                <div class="box100 line-b bg-blue2 pt40">
+                                    <div class="box1200 mau">
+                                        <ul class="clearfix author-list txt-box bg-hot">
+                                            <li style="border: 0;">
+                                                <!-- start 学者头像 -->
+                                                <div class="fl  mr40">
+                                                    <a class="userbox" href="javascript:void(0)">
+                                                        <img id="ContentPlaceHolder1_imgTitleImage" src="../static/images/scholar_portrait.png">
+                                                    </a>
+                                                </div>
+                                                <!-- end 学者头像 -->
+                                                <!-- start 学者个人简介-->
+                                                <div class="box50 fl">
+                                                    <!-- 学者姓名 -->
+                                                    <a class="font24 color-wit" href="javascript:void(0)">
+                                                        <span>{{ scholarname }}</span>
+                                                    </a>
+                                                    <!-- 地区和机构 -->
+                                                    <div class="ini-box pr20 color-gray pt10">
+                                                        <!-- 图标 -->
+                                                        <i class="iconfont icon-jigou pr10"></i>
+                                                        <!-- 地区机构 -->
+                                                        <span id="ContentPlaceHolder1_LabelRegion">{{ scholarschool }}</span>
+                                                    </div>
+                                                    <!-- ORCID 号-->
+                                                    <p class="ini-box pr20 color-gray pt10">ScholarID：
+                                                        <a id="ContentPlaceHolder1_idORCID" class="color-gray" target="_blank">
+                                                            <span id="ContentPlaceHolder1_LabelORCID">{{ scholarid }}</span>
+                                                        </a>
+                                                    </p>
+                                                     <!-- 研究领域-->
+                                                    <p class="color-gray pb10">研究领域：
+                                                        <a id="ContentPlaceHolder1_idORCID" class="color-gray" target="_blank">
+                                                            <span id="ContentPlaceHolder1_LabelORCID">
+                                                                {% for field in scholarfield %}
+                                                                    {{ field }}
+                                                                {% endfor %}
+
+                                                            </span>
+                                                        </a>
+                                                    </p>
+                                                    <!-- 一行数据 -->
+                                                    <p class="color-gray">
+                                                        <!-- 成果数目-->
+                                                        <a class="mr15 color-wit line-h" href="javascript:void(0)">
+                                                            <span class="txt-h">成果数</span>
+                                                            <span id="ContentPlaceHolder1_LabelCount">{{ achievement_num }}</span>
+                                                        </a>
+                                                        <!-- 引用数目-->
+                                                        <a href="javascript:void(0)" id="ContentPlaceHolder1_aIF" class="mr15 color-wit line-h">
+                                                            <span class="txt-h">引用数</span>
+                                                            <span id="ContentPlaceHolder1_LabelCountIF">{{ cited_num }}</span>
+                                                        </a>
+                                                        <!-- H指数-->
+                                                        <a href="javascript:void(0)" id="ContentPlaceHolder1_aIF2" class="mr15 color-wit line-h">
+                                                            <span class="txt-h">H指数</span>
+                                                            <span id="ContentPlaceHolder1_LabelAverageIF">{{ Hpoint }}</span>
+                                                        </a>
+                                                        <!-- G指数-->
+                                                        <a href="javascript:void(0)" id="ContentPlaceHolder1_aIF2" class="mr15 color-wit line-h">
+                                                            <span class="txt-h">G指数</span>
+                                                            <span id="ContentPlaceHolder1_LabelAverageIF">{{ Gpoint }}</span>
+                                                        </a>
+                                                    </p>
+                                                </div>
+                                                <!-- end 学者个人简介-->
+                                                 <div>
+                                                    <div>
+                                                        <!--<p><button class="recommendscholar">推荐学者</button></p>-->
+                                                        <p>
+                                                            <a id="recommendscholar" style="font-size: 22px;" class="myrecommend Flex-color-Special Flex-fadeIn" href="javascript:void(0);" onclick="recommend()">
+                                                                推荐学者
+                                                            </a>
+                                                        </p>
+                                                    </div>
+
+                                                    <div id="reclist" class="color-gray" style="height: 100px;display: none"></div>
+                                                    <div id="changelist" style="display: none">
+                                                            <!--
+                                                            <button class="change" value="0">换一换</button>
+                                                             <span>
+                                                                <img src="../static/images/change.png" style="height: 30px" alt>
+                                                            </span>
+                                                            -->
+                                                         <a id="change" class="myrecommend" href="javascript:void(0);" onclick="change_scholar()">
+                                                                换一换
+                                                             <span>
+                                                                <img src="../static/images/change.png" style="height: 30px" alt>
+                                                            </span>
+                                                         </a>
+                                                    </div>
+                                                </div>
+                                                <div class="clear"></div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <!-- 详细信息 -->
+                                <div class="class=box100 bg-wit">
+                                    <div class="box1200 mau">
+                                        <div class="box100 pl20 pt40 pb40 clearfix ">
+
+                                            <!-- start 左侧导航栏 Nav tabs -->
+                                            <ul class="nav-list clearfix fl" role="tablist" style="width: 15%;">
+                                                <li role="presentation" class="active">
+                                                    <a class="li1" href="#cluster1" aria-controls="cluster1" role="tab" data-toggle="tab" aria-expanded="true">
+                                                        <span class="iconfont icon-lunwen pr10" aria-hidden="true"></span>
+                                                        学术成果
+                                                    </a>
+                                                </li>
+                                                <li id="ContentPlaceHolder1_li2" role="presentation" class="">
+                                                    <a href="#cluster2" aria-controls="cluster2" role="tab" data-toggle="tab" aria-expanded="false">
+                                                        <span class="iconfont icon-jigou pr10" aria-hidden="true"></span>
+                                                        合作机构
+                                                    </a>
+                                                </li>
+                                                <li role="presentation" class="">
+                                                    <a href="#cluster3" aria-controls="cluster3" role="tab" data-toggle="tab" aria-expanded="false">
+                                                        <span class="iconfont icon-scholar pr10" aria-hidden="true"></span>
+                                                        合作学者
+                                                    </a>
+                                                </li>
+                                                <li role="presentation" class="">
+                                                    <a href="#cluster4" aria-controls="cluster4" role="tab" data-toggle="tab" aria-expanded="false">
+                                                        <span class="iconfont icon-leaf pr10" aria-hidden="true"></span>
+                                                        学科
+                                                    </a>
+                                                </li>
+                                                <li role="presentation" class="">
+                                                    <a href="#cluster5" aria-controls="cluster5" role="tab" data-toggle="tab" aria-expanded="false">
+                                                        <span class="iconfont icon-book pr10" aria-hidden="true"></span>
+                                                        期刊
+                                                    </a>
+                                                </li>
+                                                <li role="presentation" class="">
+                                                    <a href="#cluster6" aria-controls="cluster6" role="tab" data-toggle="tab" aria-expanded="false">
+                                                        <span class="iconfont icon-relationnet pr10" aria-hidden="true"></span>
+                                                        关系网络
+                                                    </a>
+                                                </li>
+                                                <li role="presentation" class="">
+                                                    <a href="#cluster7" aria-controls="cluster7" role="tab" data-toggle="tab" aria-expanded="false">
+                                                        <span class="iconfont icon-picture pr10" aria-hidden="true"></span>
+                                                        个人画像
+                                                    </a>
+                                                </li>
+                                                <li role="presentation" class="">
+                                                    <a href="#cluster8" aria-controls="cluster8" role="tab" data-toggle="tab" aria-expanded="false">
+                                                        <span class="iconfont icon-vision pr10" aria-hidden="true"></span>
+                                                        可视化
+                                                    </a>
+                                                </li>
+                                                <div class="clear"></div>
+                                            </ul>
+                                            <!-- end 左侧导航栏 Tab panes -->
+
+                                            <!-- 动态展开接受页面 -->
+                                            <div class="tab-content pb40 pl40 fl" style="width: 85%;">
+                                                <!-- 学术成果列表 -->
+                                                <div role="tabpanel" class="tab-pane active" id="cluster1">
+                                                    <ul class="box100 clearfix author-list">
+                                                        <div id="ContentPlaceHolder1_InfoList1_divid">
+                                                            {% for i in range(paperlen)%}
+                                                                <li class="ico-box">
+                                                                    <a class="font16" href="{{ paper_info_list[i]["href"] }}" target="_blank">
+                                                                        <p class="font16" style="width: 90%">
+                                                                            <span class="pr10">{{ loop.index }}</span>
+                                                                            {{ paper_name_list[i] }}
+                                                                        </p>
+                                                                    </a>
+                                                                    {% for paper_info in paper_info_list[i] %}
+                                                                        {% if paper_info == "time" %}
+                                                                             <p class="pt5">发表时间: {{ paper_info_list[i][paper_info] }}</p>
+                                                                        {% endif %}
+                                                                        {% if paper_info == "corppersons" %}
+                                                                             <p>合作学者: {{ paper_info_list[i][paper_info] }}</p>
+                                                                        {% endif %}
+                                                                        {% if paper_info == "cited" %}
+                                                                             <p>引用量: {{ paper_info_list[i][paper_info] }}&nbsp;&nbsp;&nbsp;
+                                                                        {% endif %}
+                                                                        {% if paper_info == "source" %}
+                                                                             来源: {{ paper_info_list[i][paper_info] }}</p>
+                                                                        {% endif %}
+                                                                    {% endfor %}
+                                                                    <div class="clear"></div>
+                                                                </li>
+                                                            {% endfor %}
+                                                        </div>
+                                                    </ul>
+                                                    <!-- 自动隐藏翻页 -->
+                                                    <div class="line-t pt10 pl20">
+                                                        <nav aria-label="Page navigation">
+                                                            <ul class="pagination">
+                                                                <!-- AspNetPager 7.3.2  Copyright:2003-2010 Webdiyer (www.webdiyer.com) -->
+                                                                <!--记录总数只有一页，AspNetPager已自动隐藏，若需在只有一页数据时显示AspNetPager，请将AlwaysShow属性值设为true！-->
+                                                                <!-- AspNetPager 7.3.2  Copyright:2003-2010 Webdiyer (www.webdiyer.com) -->
+                                                            </ul>
+                                                        </nav>
+                                                    </div>
+                                                </div>
+                                                <!-- 合作机构 -->
+                                                <div role="tabpanel" class="tab-pane" id="cluster2">
+                                                    <div class="line-a bg-e pd40">
+                                                            <table class="my-table table-hover">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th style="width: 10%;">序号</th>
+                                                                        <th style="width: 50%;">机构名称</th>
+                                                                        <th style="width: 20%;text-align: center">&nbsp;</th>
+                                                                        <th style="width: 20%;text-align: center">合作次数</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    {% for col in collaborate_org %}
+                                                                        <tr>
+                                                                            <td style="width: 10%"><span class="num-box radius3">{{ loop.index }}</span></td>
+                                                                            <td style="width: 50%"><span class="b">{{ col }}</span></td>
+                                                                            <td style="text-align: center;">------------</td>
+                                                                            <td style="text-align: center"><span class="b">{{ collaborate_org[col] }}</span></td>
+                                                                        </tr>
+                                                                    {% endfor %}
+                                                                </tbody>
+                                                            </table>
+                                                    </div>
+                                                </div>
+                                                <!-- 合作学者 -->
+                                                <div role="tabpanel" class="tab-pane" id="cluster3">
+                                                    <div class="line-a bg-e pd40">
+                                                        <table class="my-table table-hover">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th style="width: 10%;">序号</th>
+                                                                    <th style="width: 20%;">姓名</th>
+                                                                    <th style="width: 40%;">机构</th>
+                                                                    <th style="width: 20%;margin-left: 10%">合作次数</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                {% for pal in rela_partner %}
+                                                                    <tr>
+                                                                        <td><span class="num-box radius3">{{ loop.index }}</span></td>
+                                                                        {% for p in pal %}
+                                                                            <!--去掉合作学者里的id信息并给合作学者加上链接  3.4 bwm-->
+                                                                            {% if p=="name" %}
+{#                                                                               <td><span class="b"><a href="/scholarinfo?school={{ pal['in'] }}&name={{ pal[p] }}&major={{ scholarmajor }}">{{ pal[p]}}</a></span></td>#}
+                                                                                <td><span id="searchbtn2" class="b"><a href="/scholarinfo?scholarid={{ pal['id'] }}" target="_blank">{{ pal[p]}}</a></span></td>
+{#                                                                                <td><span id="searchbtn2" class="b">{{ pal[p]}}</span></td>#}
+                                                                            {% endif %}
+                                                                            {% if p!="id" and p!="name" %}
+                                                                                <td><span class="b">{{ pal[p]}}</span></td>
+                                                                            {% endif %}
+                                                                        {% endfor %}
+                                                                    </tr>
+                                                                {% endfor %}
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                                <!-- 学科列表 -->
+                                                <div role="tabpanel" class="tab-pane" id="cluster4">
+                                                    <div class="line-a bg-e pd40">
+                                                        <table class="my-table table-hover">
+                                                            <thead>
+                                                            <tr>
+                                                                <th style="width: 8%;">序号</th>
+                                                                <th style="width: 15%;">研究方向</th>
+                                                                <th style="width: 16%;">方向代码</th>
+                                                                <th style="width: 15%;">一级学科</th>
+                                                                <th style="width: 15%;">代码1</th>
+                                                                <th style="width: 15%;">二级学科</th>
+                                                                <th style="width: 15%;">代码2</th>
+                                                            </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                            {% for sub in subject %}
+                                                                    <tr style="width: auto">
+                                                                        <td><span class="num-box radius3">{{ loop.index }}</span></td>
+                                                                        {% for s in sub %}
+                                                                                <td><span class="b">{{ s }}</span></td>
+                                                                        {% endfor %}
+                                                                    </tr>
+                                                                {% endfor %}
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                                <!-- 期刊列表 -->
+                                                <div role="tabpanel" class="tab-pane" id="cluster5">
+                                                    <div class="line-a bg-e pd40">
+                                                         <table class="my-table table-hover">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th style="width: 15%">序号</th>
+                                                                    <th style="width: 35%">名称</th>
+                                                                    <th style="width: 20%;text-align: center">&nbsp;</th>
+                                                                    <th style="width: 30%;text-align: center">成果数量</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                {% for achievement in achievement_list %}
+                                                                     <tr>
+                                                                        <td style="width: 15%"><span class="num-box radius3">{{ loop.index }}</span></td>
+                                                                        <td style="width: 35%"><span class="b">{{ achievement }}</span></td>
+                                                                        <td style="width: 20%;text-align: center">------------</td>
+                                                                        <td style="width: 30%;text-align: center"><span class="b">{{ achievement_list[achievement] }}</span></td>
+                                                                    </tr>
+                                                                {% endfor %}
+                                                            </tbody>
+                                                         </table>
+                                                    </div>
+                                                </div>
+                                                <!-- 关系网络列表 -->
+                                                <div role="tabpanel" class="tab-pane" id="cluster6" style="width: 860px;">
+                                                    <div class="line-a bg-e pd40">
+                                                        <div class="datatypeselect" style="margin-bottom: 2.5%">
+                                                            <button type="button" id="nettypeselectbtn1" class="btn btn-primary" style="margin-left: 30%;outline: none">合作关系网络</button>
+                                                            <button type="button" id="nettypeselectbtn2" class="btn btn-primary" style="margin-left: 10%;outline: none">多维关系网络</button>
+                                                            <div id="ContentPlaceHolder1_divRenetwork" align="right" style="margin: 0 auto">
+                                                                <button class="comparescholar" id="comparescholar">学者对比</button>
+                                                            </div>
+                                                        </div>
+                                                        <div id="RelationNet" align="center" style="margin:0 auto; width: 700px;height: 700px;display: block">
+                                                            <script>draw()</script>
+                                                        </div>
+                                                        <div id="NewRelationNet" align="center" style="margin:0 auto; width: 700px;height: 700px;display: none"></div>
+
+                                                        <div class="partnercompare" id="partnercompare" style="display:none">
+                                                            <div class="datatypeselect">
+                                                                <button type="button" id="partnerbtn1" class="btn btn-primary" style="margin-left: 20%">学术成果</button>
+                                                                <button type="button" id="partnerbtn2" class="btn btn-primary" style="margin-left: 10%">论文引用</button>
+                                                                <button type="button" id="partnerbtn3" class="btn btn-primary" style="margin-left: 10%">期刊会议</button>
+                                                            </div>
+                                                            <div id="partnerCompare1" align="center" style="margin:0 auto;width: 650px;height: 550px;display: block"></div>
+                                                            <div id="partnerCompare2" align="center" style="margin:0 auto;width: 650px;height: 550px;display: none"></div>
+                                                            <div id="partnerCompare3" align="center" style="margin:0 auto;width: 700px;height: 600px;display: none"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--个人画像模块-->
+                                                <div role="tabpanel" class="tab-pane" id="cluster7">
+                                                    <div class="line-a bg-e pl10">
+                                                        <div id="ContentPlaceHolder1_divPainting"></div>
+                                                        <div id="7_main" style="margin: auto;;width: 600px; height: 600px;"></div>
+                                                    </div>
+                                                </div>
+                                                <!--数据可视化模块-->
+                                                <div role="tabpanel" class="tab-pane" id="cluster8">
+                                                    <div class="line-a bg-e pd40">
+                                                            <div class="datatypeselect">
+                                                                <button type="button" id="datatypeselectbtn1" class="btn btn-primary">学术成果</button>
+                                                                <button type="button" id="datatypeselectbtn2" class="btn btn-primary">论文引用</button>
+                                                                <button type="button" id="datatypeselectbtn3" class="btn btn-primary">期刊会议</button>
+                                                                <button type="button" id="datatypeselectbtn4" class="btn btn-primary">研究方向</button>
+                                                            </div>
+                                                             <div id="8_main1" align="center" style="margin:0 auto;width: 650px;height: 550px;display: block"></div>
+                                                            <div id="8_main2" align="center" style="margin:0 auto;width: 650px;height: 550px;display: none"></div>
+                                                            <div id="8_main3" align="center" style="margin:0 auto;width: 700px;height: 600px;display: none"></div>
+                                                            <div id="8_main4" align="center" style="margin:0 auto;width: 650px;height: 550px;display: none;"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- main end -->
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        <!-- end 2、页面主体：学者信息+左侧导航条-->
+        <tr>
+            <td>
+                <!--查询结果页面最底部开始-->
+                <div class="box100 foot ">
+                    <div class="box1200 mau clearfix">
+                        <div class="pt20 pb20 font24">高校学者发现系统</div>
+                        <div class="fl box50">
+                            <p class="font12 pr40 pt20 pb20 color-gray">
+                                高校学者发现系统是一款免费公开的用来查询学者信息的网站。在2.0版本中我们展示了国内外大量高校及科研机构的学者信息，包括其工作机构、研究领域、科研成果、学术关系网络、学者画像等。此外，我们还更新了反馈机制、学者分布地图、学者推荐功能、学者对比功能等，希望能为您提供更好的使用体验。</p>
+                        </div>
+                        <div class="fr qerbox ">
+                            <p class="color-blue text-center pt20 pb10">返回顶部</p>
+                            <a href="#top" class="btn-top mau">
+                                <img src="../static/images/top.png" >
+                            </a>
+                        </div>
+                    </div>
+                    <p class="pt20 pb20 text-center">Copyright © 2020 CAU云中君开发团队</p>
+                </div>
+                <!--查询结果页面最底部结束-->
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <!--3.10号柏为民添加 传值给反馈页面 -->
+<script>
+    var data1={
+        scholar_name1:data.scholar_name,
+        scholar_school1:data.scholar_school
+    };
+    localStorage.setItem("info",JSON.stringify(data1));
+</script>
+</body>
+</html>
