@@ -1,0 +1,37 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: zhztch - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "D:\RG60Plus\Temp\RSP3E0.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Debug/zhztch.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"F:\学习资料\大学\图形学\1\种子填充\种子填充算法\种子和扫描线填充算法\zhztchView.cpp"
+]
+Creating command line "cl.exe @D:\RG60Plus\Temp\RSP3E0.tmp" 
+Creating temporary file "D:\RG60Plus\Temp\RSP3E1.tmp" with contents
+[
+/nologo /subsystem:windows /incremental:yes /pdb:"Debug/zhztch.pdb" /debug /machine:I386 /out:"Debug/zhztch.exe" /pdbtype:sept 
+".\Debug\MainFrm.obj"
+".\Debug\StdAfx.obj"
+".\Debug\zhztch.obj"
+".\Debug\zhztchDoc.obj"
+".\Debug\zhztchView.obj"
+".\Debug\zhztch.res"
+]
+Creating command line "link.exe @D:\RG60Plus\Temp\RSP3E1.tmp"
+<h3>Output Window</h3>
+Compiling...
+zhztchView.cpp
+Linking...
+
+
+
+<h3>Results</h3>
+zhztch.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>
