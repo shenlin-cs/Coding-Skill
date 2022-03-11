@@ -1,4 +1,4 @@
-# 白泽-高校学者发现系统
+# 实验动物档案管理系统
 ## 开发技术
 整体框架：采用SSM+前后端分离的Resteful设计风格
 前端：Ajax+JSP+CSS+Jquery+Javascript
