@@ -1,0 +1,21 @@
+﻿生成启动时间为 2018/6/29 20:10:48。
+     1>项目“D:\厉害了\图形学\计算161班-申林-图形学实验\多边形填充\fill\fill.vcxproj”在节点 2 上(build 个目标)。
+     1>InitializeBuildStatus:
+         正在创建“Debug\fill.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+       ClCompile:
+         所有输出均为最新。
+         所有输出均为最新。
+       ManifestResourceCompile:
+         所有输出均为最新。
+       Link:
+         所有输出均为最新。
+       Manifest:
+         所有输出均为最新。
+       FinalizeBuildStatus:
+         正在删除文件“Debug\fill.unsuccessfulbuild”。
+         正在对“Debug\fill.lastbuildstate”执行 Touch 任务。
+     1>已完成生成项目“D:\厉害了\图形学\计算161班-申林-图形学实验\多边形填充\fill\fill.vcxproj”(build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:00.07
