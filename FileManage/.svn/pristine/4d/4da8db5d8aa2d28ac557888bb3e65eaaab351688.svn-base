@@ -1,0 +1,8 @@
+package org.g7.service;
+
+import org.g7.domin.APIResult;
+
+public interface QueryService {
+	APIResult query(String loginname,String password);
+	APIResult getuserinfo(String loginname);
+}

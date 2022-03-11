@@ -1,0 +1,14 @@
+package org.g7.mapper;
+
+import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
+import org.g7.domin.APIResult;
+import org.g7.domin.User;
+
+public interface QueryMapper {
+	@Select("select * from g3_staff where LoginId = #{loginid} and LoginPassword = #{password}")
+	User findWithLoginnameAndPassword(@Param("loginid")String loginid,@Param("password") String password);
+	
+	@Select("select * from g3_staff where LoginId = #{loginid}")
+	User findWithLoginname(@Param("loginid")String loginid);
+}
