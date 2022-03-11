@@ -1,0 +1,41 @@
+3.设La和Lb是两个单链表，表中元素递增有序，试设计一个算法：将La和Lb就地归并成一个按元素值递减有序的单链表Lc，请分析算法的时间复杂度。
+
+解答：
+根据已知条件，La和Lb是两个递增有序表，所以可以先取La表的表头建立空的Lc表。然后同时扫描La表和Lb表，将两表中最大的结点从对应表中摘下，并作为开始结点插入Lc表中。如此反复，直到La表或Lb表为空。最后将不为空的La表或Lb表中的结点依次摘下并作为开始结点插入Lc表中。这时，得到的Lc表就是由La表和Lb表归并成的一个按元素值递减有序的单链表Lc。并且辅助空间为O(1)。   
+算法如下： 
+LinkList MergeSort_L ( LinkList La , LinkList Lb LinkList &Lc) {	
+// 归并两个带头结点的递增有序表为一个带头结点递减有序表     
+pa=La->next;            //pa指向La表开始结点 
+pb=Lb->next;             //pb指向Lb表开始结点  
+Lc=pc=La;
+Lc->next=NULL;          //取La表的表头建立空的Lc表       
+
+while ( pa && pb) {  
+if ( pb->data <= pa->data ) { 
+// 当Lb中的元素小于等于La中当前元素时，将pa表的开始结点摘下         
+q=pa;pa=pa->next; 
+}
+else{
+// 当Lb中的元素大于La中当前元素时，将pb表的开始结点摘下         
+q=pb;pb=pb->next;
+} 
+      		q->next=pc->next;
+pc->next=q;	//将摘下的结点q作为开始结点插入Lc表      
+} 
+//若pa表非空，则处理pa表     
+while(pa)
+{ 
+      		q=pa;pa=pa->next; 
+      		q->next=pc->next;
+pc->next=q;
+}     
+//若pb表非空，则处理pb表     
+while(pb)
+{ 
+      		q=pb;pb=pb->next; 
+      		q->next=pc->next;
+pc->next=q;
+}     
+delete Lb;//回收Lb表的头结点空间  
+return Lc;    
+}  

@@ -1,0 +1,54 @@
+﻿生成启动时间为 2018/6/29 20:12:04。
+     1>项目“D:\厉害了\图形学\计算161班-申林-图形学实验\二维变换\Graph.vcxproj”在节点 2 上(build 个目标)。
+     1>InitializeBuildStatus:
+         正在创建“.\Debug\Graph.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+       ClCompile:
+         d:\Program Files (x86)\VS2010\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _VC80_UPGRADE=0x0600 /D _MBCS /D _AFXDLL /Gm /EHsc /RTC1 /MDd /GS /Gy- /fp:precise /Zc:wchar_t /Zc:forScope /Yc"stdafx.h" /Fp".\Debug\Graph.pch" /Fo".\Debug\\" /Fd".\Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt StdAfx.cpp
+         StdAfx.cpp
+         _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
+         d:\Program Files (x86)\VS2010\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _VC80_UPGRADE=0x0600 /D _MBCS /D _AFXDLL /Gm /EHsc /RTC1 /MDd /GS /Gy- /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp".\Debug\Graph.pch" /Fo".\Debug\\" /Fd".\Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt Coordinate.cpp Graph.cpp GraphDoc.cpp GraphView.cpp Line.cpp MainFrm.cpp Matrix.cpp MyGraph.cpp MyPoint.cpp
+         MyPoint.cpp
+         MyGraph.cpp
+         Matrix.cpp
+         MainFrm.cpp
+         Line.cpp
+         GraphView.cpp
+     1>d:\厉害了\图形学\计算161班-申林-图形学实验\二维变换\graphview.cpp(593): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 d:\program files (x86)\vs2010\vc\include\stdio.h(371) : 参见“sprintf”的声明
+         GraphDoc.cpp
+         Graph.cpp
+     1>d:\厉害了\图形学\计算161班-申林-图形学实验\二维变换\graph.cpp(61): warning C4996: 'CWinApp::Enable3dControls': CWinApp::Enable3dControls is no longer needed. You should remove this call.
+                 d:\program files (x86)\vs2010\vc\atlmfc\include\afxwin.h(5344) : 参见“CWinApp::Enable3dControls”的声明
+         Coordinate.cpp
+         正在生成代码...
+       ResourceCompile:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /D _DEBUG /D _VC80_UPGRADE=0x0600 /D _AFXDLL /l"0x0804" /nologo /fo".\Debug\Graph.res" Graph.rc 
+       ManifestResourceCompile:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo".\Debug\Graph.exe.embed.manifest.res" .\Debug\Graph_manifest.rc 
+       Link:
+         d:\Program Files (x86)\VS2010\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:".\Debug\Graph.exe" /INCREMENTAL /NOLOGO /MANIFEST /ManifestFile:".\Debug\Graph.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:\厉害了\图形学\计算161班-申林-图形学实验\二维变换\Debug\Graph.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\Debug\Graph.lib" /MACHINE:X86 .\Debug\Graph.res
+         .\Debug\Graph.exe.embed.manifest.res
+         .\Debug\Coordinate.obj
+         .\Debug\Graph.obj
+         .\Debug\GraphDoc.obj
+         .\Debug\GraphView.obj
+         .\Debug\Line.obj
+         .\Debug\MainFrm.obj
+         .\Debug\Matrix.obj
+         .\Debug\MyGraph.obj
+         .\Debug\MyPoint.obj
+         .\Debug\StdAfx.obj
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:".\Debug\Graph.exe.embed.manifest" /manifest .\Debug\Graph.exe.intermediate.manifest "d:\Program Files (x86)\VS2010\VC\Include\Manifest\dpiaware.manifest"
+         所有输出均为最新。
+       LinkEmbedManifest:
+         所有输出均为最新。
+         Graph.vcxproj -> D:\厉害了\图形学\计算161班-申林-图形学实验\二维变换\.\Debug\Graph.exe
+       FinalizeBuildStatus:
+         正在删除文件“.\Debug\Graph.unsuccessfulbuild”。
+         正在对“.\Debug\Graph.lastbuildstate”执行 Touch 任务。
+     1>已完成生成项目“D:\厉害了\图形学\计算161班-申林-图形学实验\二维变换\Graph.vcxproj”(build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:18.95

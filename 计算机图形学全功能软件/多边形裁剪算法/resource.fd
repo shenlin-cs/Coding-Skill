@@ -1,0 +1,11 @@
+!MS$FREEFORM
+! Microsoft Developer Studio generated include file.
+! Used by ComputerGraphics.rc
+!
+      integer, parameter :: IDD_ABOUTBOX                    = 100
+      integer, parameter :: IDR_MAINFRAME                   = 128
+      integer, parameter :: IDR_COMPUTTYPE                  = 129
+      integer, parameter :: ID_FILLPLOYON                   = 32771
+      integer, parameter :: ID_CUTRECT                      = 32773
+      integer, parameter :: ID_VIEW_DEFINERECT              = 32775
+      integer, parameter :: ID_EDIT_DEFINEPOINT             = 32776
